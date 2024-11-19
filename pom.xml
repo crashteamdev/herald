@@ -15,12 +15,14 @@
     <description>herald</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         <kotlin.version>1.9.25</kotlin.version>
         <server.port>8022</server.port>
         <management.port>8023</management.port>
         <exposed.ports>${server.port} ${management.port}</exposed.ports>
         <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <telegram.version>6.9.7.1</telegram.version>
     </properties>
 
     <dependencyManagement>
@@ -65,11 +67,38 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
 
+        <!--        <dependency>-->
+        <!--            <groupId>org.telegram</groupId>-->
+        <!--            <artifactId>telegrambots</artifactId>-->
+        <!--            <version>${telegram.version}</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots-spring-boot-starter</artifactId>
+            <version>${telegram.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
